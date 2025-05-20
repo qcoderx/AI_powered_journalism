@@ -1,0 +1,105 @@
+/* AudioTranscriptionPage.css */
+.audio-transcription-container h2 {
+  color: #1A237E; /* Deep Blue */
+  text-align: center;
+  margin-bottom: 10px;
+}
+.audio-transcription-container > p {
+  text-align: center;
+  color: #555;
+  margin-bottom: 30px;
+  font-size: 1.1em;
+}
+
+.transcription-workflow {
+  display: flex;
+  flex-direction: column; /* Stack upload and results */
+  gap: 30px;
+}
+
+.upload-section, .results-section {
+  background-color: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+}
+
+.upload-section h3, .results-section h4 {
+  color: #AB47BC; /* Bright Purple */
+  margin-bottom: 15px;
+}
+
+.dropzone {
+  border: 2px dashed #ccc;
+  border-radius: 5px;
+  padding: 30px;
+  text-align: center;
+  cursor: pointer;
+  background-color: #F9F9F9;
+  margin-bottom: 15px;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.dropzone.active {
+  border-color: #AB47BC; /* Bright Purple */
+  background-color: #F0E6F6;
+}
+
+.dropzone p {
+  margin: 0;
+  color: #555;
+}
+
+.file-info {
+    font-size: 0.9em;
+    color: #777;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.tool-button {
+  background-color: #AB47BC; /* Bright Purple */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  display: block; /* Make button take full width or center it */
+  margin: 0 auto; /* Center button */
+  transition: background-color 0.3s ease;
+}
+
+.tool-button:hover:not(:disabled) {
+  background-color: #8E24AA; /* Darker Purple */
+}
+
+.tool-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.output-box { /* Re-use styles from ScriptAssistantPage.css if globalized */
+  background-color: #F9F9F9;
+  padding: 15px;
+  border-radius: 4px;
+  border: 1px solid #E0E0E0;
+  margin-bottom: 20px;
+  min-height: 80px;
+}
+.output-box.loading-box p {
+    color: #777;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.output-box p {
+  font-size: 1em;
+  line-height: 1.6;
+  color: #333;
+  white-space: pre-wrap;
+}
+
+.broadcast-text-box {
+  border-left: 4px solid #1A237E; /* Accent for broadcast text */
+}

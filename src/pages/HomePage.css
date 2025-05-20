@@ -1,0 +1,105 @@
+/* HomePage.css */
+.page-container {
+  padding: 20px 40px;
+  background-color: #F0F2F5; /* Light Gray background */
+  min-height: calc(100vh - 120px - 70px); /* Full viewport height minus header and footer */
+}
+
+.homepage-container .hero-section {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: white; /* White card for hero */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin-bottom: 40px;
+}
+
+.hero-section h2 {
+  font-size: 2.8em;
+  color: #1A237E; /* Deep Blue */
+  margin-bottom: 10px;
+}
+
+.hero-section .subtitle {
+  font-size: 1.5em;
+  color: #AB47BC; /* Bright Purple */
+  margin-bottom: 20px;
+}
+
+.hero-section p {
+  font-size: 1.1em;
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto 30px auto;
+}
+
+.hero-cta-buttons .cta-button {
+  padding: 12px 25px;
+  margin: 0 10px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  font-size: 1em;
+}
+
+.primary-cta {
+  background-color: #AB47BC; /* Bright Purple */
+  color: white;
+  border: 2px solid #AB47BC;
+}
+
+.primary-cta:hover {
+  background-color: #8E24AA; /* Darker Purple */
+  border-color: #8E24AA;
+}
+
+.secondary-cta {
+  background-color: transparent;
+  color: #1A237E; /* Deep Blue */
+  border: 2px solid #1A237E;
+}
+
+.secondary-cta:hover {
+  background-color: #1A237E;
+  color: white;
+}
+
+.features-overview {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.features-overview h3 {
+  font-size: 2em;
+  color: #1A237E; /* Deep Blue */
+  margin-bottom: 30px;
+}
+
+.features-grid {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.feature-card {
+  background-color: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  flex-basis: calc(33.333% - 40px); /* Adjust for gap */
+  min-width: 280px;
+  text-align: left;
+}
+
+.feature-card h4 {
+  color: #AB47BC; /* Bright Purple */
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  font-size: 0.95em;
+  color: #555;
+  line-height: 1.6;
+}

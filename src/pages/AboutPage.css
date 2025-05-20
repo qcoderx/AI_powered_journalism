@@ -1,0 +1,51 @@
+/* AboutPage.css */
+.about-container h2 {
+  color: #1A237E; /* Deep Blue */
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.about-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: 1.1em;
+  line-height: 1.7;
+  color: #333;
+}
+
+.about-content p {
+  margin-bottom: 1.5em;
+}
+
+.about-content ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  margin-bottom: 1.5em;
+}
+
+.about-content ul li {
+  margin-bottom: 0.8em;
+}
+
+.about-content strong {
+  color: #AB47BC; /* Bright Purple */
+}
+
+.logo-inspiration {
+  font-style: italic;
+  color: #555;
+  border-top: 1px solid #eee;
+  padding-top: 1em;
+  margin-top: 2em;
+}
+
+.about-content em {
+    display: block;
+    text-align: center;
+    margin-top: 2em;
+    color: #777;
+}
