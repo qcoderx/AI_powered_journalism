@@ -6,7 +6,6 @@ import HomePage from './pages/HomePage';
 import ScriptAssistantPage from './pages/ScriptAssistantPage';
 import AudioTranscriptionPage from './pages/AudioTranscriptionPage';
 import AboutPage from './pages/AboutPage';
-import ProfilePage from './pages/ProfilePage'; // Assuming you might add this
 import './App.css'; // For global styles
 
 function App() {
