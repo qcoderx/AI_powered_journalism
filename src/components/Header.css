@@ -1,0 +1,61 @@
+/* Header.css */
+.app-header {
+  background-color: #1A237E; /* Deep Blue */
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.logo-img {
+  height: 50px; /* Adjust as needed */
+  margin-bottom: 5px;
+}
+
+.logo-text {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #AB47BC; /* Bright Purple */
+  margin: 0;
+  line-height: 1;
+}
+
+.tagline {
+  font-size: 0.8em;
+  color: #E0E0E0; /* Lighter text for tagline */
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.navigation .nav-link {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navigation .nav-link:hover {
+  color: #AB47BC; /* Bright Purple on hover */
+}
+
+.navigation .nav-link-button {
+  background-color: #AB47BC; /* Bright Purple */
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.navigation .nav-link-button:hover {
+  background-color: #8E24AA; /* Darker Purple */
+  color: white;
+}

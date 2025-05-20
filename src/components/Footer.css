@@ -1,0 +1,23 @@
+/* Footer.css */
+.app-footer {
+  background-color: #333333; /* Dark Gray */
+  color: #E0E0E0;
+  text-align: center;
+  padding: 20px 40px;
+  margin-top: auto; /* Pushes footer to the bottom if content is short */
+  font-size: 0.9em;
+}
+
+.footer-links {
+  margin-top: 10px;
+}
+
+.footer-link {
+  color: #AB47BC; /* Bright Purple */
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
