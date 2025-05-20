@@ -18,8 +18,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/script-assistant" element={<ScriptAssistantPage />} />
             <Route path="/audio-transcription" element={<AudioTranscriptionPage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/profile" element={<ProfilePage />} /> {/* Example Profile Route */}
+            <Route path="/about" element={<AboutPage />} />           
             {/* Redirect any unknown routes to homepage */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
