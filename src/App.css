@@ -23,7 +23,7 @@ body {
 /* General page container utility - can be less specific than individual page containers if desired */
 .page-container {
   padding: 20px 40px;
-  max-width: 1200px; /* Max width for content for better readability */
+  max-width: 1600px; /* Max width for content for better readability */
   margin: 0 auto; /* Center content */
 }
 

@@ -1,7 +1,7 @@
 /* Header.css */
 .app-header {
   background-color: #1A237E; /* Deep Blue */
-  padding: 20px 40px;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,7 +21,7 @@
 }
 
 .logo-text {
-  font-size: 2.5em;
+  font-size: 2.5rem;
   font-weight: bold;
   color: #AB47BC; /* Bright Purple */
   margin: 0;
@@ -44,6 +44,11 @@
   transition: color 0.3s ease;
 }
 
+.navigation {
+  display: flex;
+  align-items: center;
+}
+
 .navigation .nav-link:hover {
   color: #AB47BC; /* Bright Purple on hover */
 }
@@ -58,4 +63,16 @@
 .navigation .nav-link-button:hover {
   background-color: #8E24AA; /* Darker Purple */
   color: white;
+}
+
+@media (max-width: 800px) {
+  .navigation {
+    display: none;
+  }
+  .logo-text {
+    font-size: 1.5rem;
+  }
+  .tagline {
+    font-size: .4rem;
+  }
 }

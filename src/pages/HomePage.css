@@ -1,8 +1,10 @@
 /* HomePage.css */
 .page-container {
-  padding: 20px 40px;
-  background-color: #F0F2F5; /* Light Gray background */
-  min-height: calc(100vh - 120px - 70px); /* Full viewport height minus header and footer */
+  padding: 20px;
+  background-color: #f0f2f5; /* Light Gray background */
+  min-height: calc(
+    100vh - 120px - 70px
+  ); /* Full viewport height minus header and footer */
 }
 
 .homepage-container .hero-section {
@@ -10,19 +12,19 @@
   padding: 60px 20px;
   background-color: white; /* White card for hero */
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-bottom: 40px;
 }
 
 .hero-section h2 {
   font-size: 2.8em;
-  color: #1A237E; /* Deep Blue */
+  color: #1a237e; /* Deep Blue */
   margin-bottom: 10px;
 }
 
 .hero-section .subtitle {
   font-size: 1.5em;
-  color: #AB47BC; /* Bright Purple */
+  color: #ab47bc; /* Bright Purple */
   margin-bottom: 20px;
 }
 
@@ -31,6 +33,13 @@
   color: #555;
   max-width: 700px;
   margin: 0 auto 30px auto;
+}
+
+.hero-cta-buttons {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  gap: 2;
 }
 
 .hero-cta-buttons .cta-button {
@@ -44,24 +53,24 @@
 }
 
 .primary-cta {
-  background-color: #AB47BC; /* Bright Purple */
+  background-color: #ab47bc; /* Bright Purple */
   color: white;
-  border: 2px solid #AB47BC;
+  border: 2px solid #ab47bc;
 }
 
 .primary-cta:hover {
-  background-color: #8E24AA; /* Darker Purple */
-  border-color: #8E24AA;
+  background-color: #8e24aa; /* Darker Purple */
+  border-color: #8e24aa;
 }
 
 .secondary-cta {
   background-color: transparent;
-  color: #1A237E; /* Deep Blue */
-  border: 2px solid #1A237E;
+  color: #1a237e; /* Deep Blue */
+  border: 2px solid #1a237e;
 }
 
 .secondary-cta:hover {
-  background-color: #1A237E;
+  background-color: #1a237e;
   color: white;
 }
 
@@ -72,7 +81,7 @@
 
 .features-overview h3 {
   font-size: 2em;
-  color: #1A237E; /* Deep Blue */
+  color: #1a237e; /* Deep Blue */
   margin-bottom: 30px;
 }
 
@@ -87,14 +96,14 @@
   background-color: white;
   padding: 25px;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
   flex-basis: calc(33.333% - 40px); /* Adjust for gap */
   min-width: 280px;
   text-align: left;
 }
 
 .feature-card h4 {
-  color: #AB47BC; /* Bright Purple */
+  color: #ab47bc; /* Bright Purple */
   margin-bottom: 10px;
 }
 
@@ -102,4 +111,14 @@
   font-size: 0.95em;
   color: #555;
   line-height: 1.6;
+}
+
+@media (max-width: 800px) {
+  .hero-cta-buttons {
+    flex-direction: column;
+    margin: 10px 0;
+  }
+  .cta-button {
+    margin: 20px 0;
+  }
 }
