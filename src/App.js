@@ -1,5 +1,6 @@
+// No need to import React here
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
@@ -10,7 +11,8 @@ import './App.css'; // For global styles
 
 function App() {
   return (
-    <Router>
+    // Do not use Router here since you are using BrowserRouter in index.js
+    // <Router>
       <div className="app-wrapper">
         <Header />
         <main className="app-main-content">
@@ -25,7 +27,7 @@ function App() {
         </main>
         <Footer />
       </div>
-    </Router>
+    // </Router>
   );
 }
 
