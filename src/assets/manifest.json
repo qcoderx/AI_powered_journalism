@@ -4,8 +4,8 @@
   "description": "An AI-driven web application to assist journalists with script writing, grammar correction, and audio-to-text broadcasting.",
   "icons": [
     {
-      "src": "icons/icon-48x48.png",
-      "sizes": "48x48",
+      "src": "favincon-16x16.png",
+      "sizes": "16x16",
       "type": "image/png"
     },
     {
