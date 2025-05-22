@@ -1,124 +1,187 @@
 /* HomePage.css */
 .page-container {
-  padding: 20px;
-  background-color: #f0f2f5; /* Light Gray background */
-  min-height: calc(
-    100vh - 120px - 70px
-  ); /* Full viewport height minus header and footer */
+  padding: 20px; 
+  background-color: #F0F2F5; 
+  min-height: calc(100vh - 120px - 70px);
 }
 
 .homepage-container .hero-section {
   text-align: center;
-  padding: 60px 20px;
-  background-color: white; /* White card for hero */
+  padding: 40px 15px; 
+  background-color: white;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 40px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin-bottom: 30px; 
 }
 
 .hero-section h2 {
-  font-size: 2.8em;
-  color: #1a237e; /* Deep Blue */
+  font-size: 2.5em;
+  color: #1A237E;
   margin-bottom: 10px;
 }
 
 .hero-section .subtitle {
-  font-size: 1.5em;
-  color: #ab47bc; /* Bright Purple */
-  margin-bottom: 20px;
+  font-size: 1.3em;
+  color: #AB47BC;
+  margin-bottom: 15px; 
 }
 
 .hero-section p {
-  font-size: 1.1em;
+  font-size: 1em; 
   color: #555;
-  max-width: 700px;
-  margin: 0 auto 30px auto;
+  max-width: 650px; 
+  margin: 0 auto 25px auto; 
 }
 
 .hero-cta-buttons {
   display: flex;
-  align-self: center;
-  justify-content: center;
-  gap: 2;
+  flex-direction: column; 
+  align-items: center;
+  gap: 15px; 
 }
 
 .hero-cta-buttons .cta-button {
-  padding: 12px 25px;
-  margin: 0 10px;
+  padding: 12px 20px; 
   text-decoration: none;
   border-radius: 5px;
   font-weight: bold;
   transition: all 0.3s ease;
-  font-size: 1em;
+  font-size: 0.95em; 
+  width: 100%; 
+  max-width: 300px; 
 }
 
 .primary-cta {
-  background-color: #ab47bc; /* Bright Purple */
+  background-color: #AB47BC;
   color: white;
-  border: 2px solid #ab47bc;
+  border: 2px solid #AB47BC;
 }
 
 .primary-cta:hover {
-  background-color: #8e24aa; /* Darker Purple */
-  border-color: #8e24aa;
+  background-color: #8E24AA;
+  border-color: #8E24AA;
 }
 
 .secondary-cta {
   background-color: transparent;
-  color: #1a237e; /* Deep Blue */
-  border: 2px solid #1a237e;
+  color: #1A237E;
+  border: 2px solid #1A237E;
 }
 
 .secondary-cta:hover {
-  background-color: #1a237e;
+  background-color: #1A237E;
   color: white;
 }
 
 .features-overview {
   text-align: center;
-  padding: 40px 0;
+  padding: 30px 0; 
 }
 
 .features-overview h3 {
-  font-size: 2em;
-  color: #1a237e; /* Deep Blue */
-  margin-bottom: 30px;
+  font-size: 1.8em; 
+  color: #1A237E;
+  margin-bottom: 25px; 
 }
 
 .features-grid {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column; 
   gap: 20px;
-  flex-wrap: wrap;
 }
 
 .feature-card {
   background-color: white;
-  padding: 25px;
+  padding: 20px; 
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
-  flex-basis: calc(33.333% - 40px); /* Adjust for gap */
-  min-width: 280px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
   text-align: left;
+  width: 100%;
 }
 
 .feature-card h4 {
-  color: #ab47bc; /* Bright Purple */
-  margin-bottom: 10px;
+  color: #AB47BC;
+  margin-bottom: 8px; 
+  font-size: 1.1em; 
 }
 
 .feature-card p {
-  font-size: 0.95em;
+  font-size: 0.9em; 
   color: #555;
   line-height: 1.6;
 }
 
-@media (max-width: 800px) {
-  .hero-cta-buttons {
-    flex-direction: column;
-    margin: 10px 0;
+/* --- Tablet and Desktop Styles (the media query I was talking about wisdom)--- */
+@media (min-width: 768px) {
+  .page-container {
+    padding: 20px 40px;
   }
-  .cta-button {
-    margin: 20px 0;
+
+  .hero-section {
+    padding: 60px 20px; 
+  }
+
+  .hero-section h2 {
+    font-size: 2.8em;
+  }
+
+  .hero-section .subtitle {
+    font-size: 1.5em;
+  }
+
+  .hero-section p {
+    font-size: 1.1em;
+  }
+
+  .hero-cta-buttons {
+    flex-direction: row; 
+    justify-content: center;
+  }
+
+  .hero-cta-buttons .cta-button {
+    width: auto; /* Let buttons size based on content */
+    margin: 0 10px; 
+  }
+
+  .features-overview h3 {
+    font-size: 2em;
+  }
+
+  .features-grid {
+    flex-direction: row; 
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  .feature-card {
+    flex-basis: calc(33.333% - 27px); 
+    min-width: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-container {
+    padding: 15px;
+  }
+  .hero-section {
+    padding: 30px 10px;
+  }
+  .hero-section h2 {
+    font-size: 2em;
+  }
+  .hero-section .subtitle {
+    font-size: 1.1em;
+  }
+  .hero-section p {
+    font-size: 0.9em;
+  }
+  .features-overview h3 {
+    font-size: 1.6em;
+  }
+  .feature-card h4 {
+    font-size: 1em;
+  }
+  .feature-card p {
+    font-size: 0.85em;
   }
 }
