@@ -1,15 +1,13 @@
 import React from 'react';
 import './Header.css'; // We'll assume you create this CSS file
 import Menu from './Menu';
-// import { logo } from '../assets';
-// You would import your actual logo image here
-// import logo from '../assets/journalAIse_logo.png'; // Assuming you save your logo in src/assets
+import logo from './assets/journalAIse_logo.png'; 
 
 const Header = () => {
   return (
     <header className="app-header">
       <div className="logo-container">
-        {/* <img src={logo} alt="JournalAIse Logo" className="logo-img" /> */}
+        <img src={logo} alt="JournalAIse Logo" className="logo-img" />
         <h1 className="logo-text">JournalAISE</h1>
         <p className="tagline">WHERE JOURNALISM MEETS INTELLIGENCE</p>
       </div>
