@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <header className="app-header">
       <div className="logo-container">
-        <img src={logo} alt="JournalAIse Logo" className="logo-img" />
+        <img src='./assets/journalAIse_logo.png' alt="JournalAIse Logo" className="logo-img" />
         <h1 className="logo-text">JournalAISE</h1>
         <p className="tagline">WHERE JOURNALISM MEETS INTELLIGENCE</p>
       </div>
