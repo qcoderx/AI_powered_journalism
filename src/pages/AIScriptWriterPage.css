@@ -1,0 +1,139 @@
+/* src/pages/AIScriptWriterPage.css */
+.ai-script-writer-container h2 {
+  color: #1A237E; /* Deep Blue */
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.ai-script-writer-container .page-description {
+  text-align: center;
+  color: #555;
+  margin-bottom: 30px;
+  font-size: 1.1em;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.script-writer-form {
+  background-color: white;
+  padding: 25px 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  max-width: 800px;
+  margin: 0 auto 30px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.script-writer-form .form-label {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: -5px; /* Adjust spacing with input */
+}
+
+.topic-input-field {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+.topic-input-field:focus {
+  border-color: #AB47BC; /* Bright Purple */
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(171, 71, 188, 0.2);
+}
+
+.generate-button {
+  padding: 12px 20px;
+  font-size: 1.05em;
+  /* Uses .tool-button styles from App.css if available,
+     otherwise define primary styles here like background-color: #AB47BC; */
+}
+
+.error-message {
+  color: #D32F2F; /* Red for errors */
+  font-size: 0.9em;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.loading-indicator {
+  text-align: center;
+  padding: 30px;
+  color: #555;
+  font-size: 1.1em;
+}
+.loading-indicator p {
+    font-style: italic;
+}
+
+.generated-script-output {
+  background-color: white;
+  padding: 25px 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.generated-script-output h3 {
+  color: #AB47BC; /* Bright Purple */
+  margin-top: 0;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  word-break: break-word; /* Ensure long topics wrap */
+}
+
+.script-content {
+  background-color: #F9F9F9; /* Slightly off-white for the script block */
+  padding: 15px;
+  border: 1px solid #E0E0E0;
+  border-radius: 5px;
+  white-space: pre-wrap; /* Preserve line breaks and spaces */
+  word-wrap: break-word; /* Ensure long lines wrap */
+  font-family: 'Courier New', Courier, monospace; /* Monospaced font for scripts */
+  font-size: 0.95em;
+  line-height: 1.6;
+  max-height: 500px; /* Max height with scroll for long scripts */
+  overflow-y: auto; /* Enable vertical scroll */
+}
+
+.copy-button {
+  margin-top: 20px;
+  display: block; /* Make it a block to center or control width */
+  margin-left: auto; /* Example: align to right */
+  margin-right: 0;
+  /* Uses .tool-button.secondary styles from App.css if available */
+}
+
+/* Responsive adjustments for AIScriptWriterPage */
+@media (max-width: 768px) {
+  .script-writer-form,
+  .generated-script-output {
+    padding: 20px;
+  }
+  .ai-script-writer-container .page-description {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .script-writer-form,
+  .generated-script-output {
+    padding: 15px;
+  }
+  .topic-input-field {
+    font-size: 0.95em;
+  }
+  .generate-button {
+    font-size: 1em;
+  }
+  .script-content {
+      font-size: 0.9em;
+  }
+}
