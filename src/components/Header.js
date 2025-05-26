@@ -1,7 +1,7 @@
 import React from 'react';
 import './Header.css'; // We'll assume you create this CSS file
 import Menu from './Menu';
-import './assets/JournalAIse_logo.png'; 
+import './JournalAIse_logo.png'; 
 
 const Header = () => {
   return (
