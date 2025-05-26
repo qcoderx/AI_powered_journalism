@@ -1,18 +1,19 @@
-// No need to import React here
+// src/App.js
 import React from 'react';
-import { Route, Routes, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import ScriptAssistantPage from './pages/ScriptAssistantPage';
 import AudioTranscriptionPage from './pages/AudioTranscriptionPage';
+import AIScriptWriterPage from './pages/AIScriptWriterPage'; // Import the new page
 import AboutPage from './pages/AboutPage';
-import './App.css'; // For global styles
+import ProfilePage from './pages/ProfilePage';
+import './App.css';
 
 function App() {
   return (
-    // Do not use Router here since you are using BrowserRouter in index.js
-    // <Router>
+    <Router>
       <div className="app-wrapper">
         <Header />
         <main className="app-main-content">
@@ -20,14 +21,16 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/script-assistant" element={<ScriptAssistantPage />} />
             <Route path="/audio-transcription" element={<AudioTranscriptionPage />} />
-            <Route path="/about" element={<AboutPage />} />           
-            {/* Redirect any unknown routes to homepage */}
+            {/* New Route Added Below */}
+            <Route path="/ai-script-writer" element={<AIScriptWriterPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>
         <Footer />
       </div>
-    // </Router>
+    </Router>
   );
 }
 
