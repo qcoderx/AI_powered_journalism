@@ -1,21 +1,22 @@
+// src/components/Header.js
 import React from 'react';
-import './Header.css'; // We'll assume you create this CSS file
-import Menu from './Menu';
-import Logo from '../assets/JournalAIse_logo.png'
+import './Header.css';
+// import logo from '../assets/journalAIse_logo.png'; // Assuming you save your logo in src/assets
 
 const Header = () => {
   return (
     <header className="app-header">
       <div className="logo-container">
-        <img src={Logo} alt="JournalAIse Logo" className="logo-img" />
+        {/* <img src={logo} alt="JournalAIse Logo" className="logo-img" /> */}
         <h1 className="logo-text">JournalAISE</h1>
         <p className="tagline">WHERE JOURNALISM MEETS INTELLIGENCE</p>
       </div>
-      <Menu />
       <nav className="navigation">
         <a href="/" className="nav-link">Home</a>
         <a href="/script-assistant" className="nav-link">Script Assistant</a>
         <a href="/audio-transcription" className="nav-link">Audio Transcription</a>
+        {/* New Link Added Below */}
+        <a href="/ai-script-writer" className="nav-link">AI Script Writer</a>
         <a href="/about" className="nav-link">About</a>
       </nav>
     </header>
