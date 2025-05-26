@@ -8,7 +8,6 @@ import ScriptAssistantPage from './pages/ScriptAssistantPage';
 import AudioTranscriptionPage from './pages/AudioTranscriptionPage';
 import AIScriptWriterPage from './pages/AIScriptWriterPage'; // Import the new page
 import AboutPage from './pages/AboutPage';
-import ProfilePage from './pages/ProfilePage';
 import './App.css';
 
 function App() {
@@ -24,7 +23,6 @@ function App() {
             {/* New Route Added Below */}
             <Route path="/ai-script-writer" element={<AIScriptWriterPage />} />
             <Route path="/about" element={<AboutPage />} />
-            <Route path="/profile" element={<ProfilePage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>
