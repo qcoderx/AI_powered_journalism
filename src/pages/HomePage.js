@@ -1,5 +1,6 @@
+// src/pages/HomePage.js
 import React from 'react';
-import './HomePage.css'; // Assuming you create this CSS file
+import './HomePage.css';
 import { Link } from 'react-router-dom'; // Assuming you'll use React Router
 
 const HomePage = () => {
@@ -8,13 +9,17 @@ const HomePage = () => {
       <section className="hero-section">
         <h2>Welcome to JournalAIse</h2>
         <p className="subtitle">Empowering Journalists with Artificial Intelligence.</p>
-        <p>Streamline your workflow, enhance your writing, and transform audio into broadcast-ready text with our suite of AI-powered tools.</p>
+        <p>Streamline your workflow, enhance your writing, transform audio, and generate topic-based scripts with our suite of AI-powered tools.</p>
         <div className="hero-cta-buttons">
           <Link to="/script-assistant" className="cta-button primary-cta">
             Go to Script Assistant
           </Link>
           <Link to="/audio-transcription" className="cta-button secondary-cta">
             Try Audio Transcription
+          </Link>
+          {/* New Button Added Below */}
+          <Link to="/ai-script-writer" className="cta-button tertiary-cta">
+            Generate AI Script
           </Link>
         </div>
       </section>
@@ -30,9 +35,10 @@ const HomePage = () => {
             <h4>Audio to Broadcast Text</h4>
             <p>Transcribe audio recordings and automatically correct them for broadcasting.</p>
           </div>
+          {/* New Feature Card Added Below */}
           <div className="feature-card">
-            <h4>Intelligent Corrections</h4>
-            <p>Benefit from AI that understands journalistic context and quality.</p>
+            <h4>AI Script Writer</h4>
+            <p>Provide a topic and let our AI generate a foundational script for you.</p>
           </div>
         </div>
       </section>
