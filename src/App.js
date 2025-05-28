@@ -6,7 +6,7 @@ import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import ScriptAssistantPage from './pages/ScriptAssistantPage';
 import AudioTranscriptionPage from './pages/AudioTranscriptionPage';
-import AIScriptWriterPage from './pages/AIScriptWriterPage'; // Import the new page
+import AIScriptWriterPage from './pages/AIScriptWriterPage';
 import AboutPage from './pages/AboutPage';
 import './App.css';
 
