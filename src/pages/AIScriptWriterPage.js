@@ -1,6 +1,6 @@
 // src/pages/AIScriptWriterPage.js
 import React, { useState } from 'react';
-import './AIScriptWriterPage.css'; // We will create this CSS file next
+import './AIScriptWriterPage.css'; // We'll create this next
 
 const AIScriptWriterPage = () => {
   const [topic, setTopic] = useState('');
@@ -15,8 +15,11 @@ const AIScriptWriterPage = () => {
     }
     setError('');
     setIsLoading(true);
-    setGeneratedScript(''); // Clear previous script
+    setGeneratedScript('');
 
+    // Simulate AI processing delay
+    setTimeout(() => {
+      const scriptContent = `
 **Scene:** News Studio / Vlogger Setup
 
 **Host:** Welcome back to "Insights Today"! The topic that's been buzzing all week, and the one we're diving deep into, is **${topic}**.
@@ -43,8 +46,10 @@ const AIScriptWriterPage = () => {
 
 **Host:** Stay informed, stay curious.
 
-**(End Scene)**`
-      );
+**(End Scene)
+`.trim();
+
+      setGeneratedScript(scriptContent);
       setIsLoading(false);
     }, 2500);
   };
@@ -67,7 +72,11 @@ const AIScriptWriterPage = () => {
           placeholder="e.g., The Future of Renewable Energy, Impact of Social Media on Youth"
           className="topic-input-field"
         />
-        <button onClick={handleGenerateScript} disabled={isLoading} className="generate-button tool-button">
+        <button
+          onClick={handleGenerateScript}
+          disabled={isLoading}
+          className="generate-button tool-button"
+        >
           {isLoading ? 'Generating Script...' : 'Generate Script'}
         </button>
         {error && <p className="error-message">{error}</p>}
@@ -76,14 +85,16 @@ const AIScriptWriterPage = () => {
       {isLoading && (
         <div className="loading-indicator">
           <p>JournalAIse is thinking... Please wait.</p>
-          {/* You can add a spinner animation here */}
+          {/* Optional: Add a spinner here */}
         </div>
       )}
 
       {generatedScript && !isLoading && (
         <div className="generated-script-output">
           <h3>Generated Script for: "{topic}"</h3>
-          <pre className="script-content">{generatedScript}</pre>
+          <pre className="script-content" key={topic}>
+            {generatedScript}
+          </pre>
           <button
             onClick={() => navigator.clipboard.writeText(generatedScript)}
             className="tool-button secondary copy-button"
