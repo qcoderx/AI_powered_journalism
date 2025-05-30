@@ -31,7 +31,7 @@ const AboutPage = () => {
           human intellect and illuminating AI-driven insights. The colors – deep blue
           and vibrant purple – represent trust, intelligence, and innovation.
         </p>
-        <p><em>This project was conceived by Data Science Pioneers!.</em></p>
+        <p><em>This project was conceived by <b>Lasisi Quadri Toluwalase</b>.</em></p>
       </section>
     </div>
   );
