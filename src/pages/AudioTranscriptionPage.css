@@ -4,39 +4,53 @@
   text-align: center;
   margin-bottom: 10px;
 }
-.audio-transcription-container > p {
+.audio-transcription-container > p { /* General page description */
   text-align: center;
   color: #555;
-  margin-bottom: 30px;
+  margin-bottom: 20px; /* Reduced margin slightly */
   font-size: 1.1em;
+  max-width: 700px; /* Keep description constrained */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .transcription-workflow {
   display: flex;
-  flex-direction: column; /* Stack upload and results */
-  gap: 30px;
+  flex-direction: column;
+  gap: 20px; /* Reduced gap slightly */
 }
 
-.upload-section, .results-section {
-  background-color: white;
-  padding: 25px;
+/* Styles for the new section grouping input methods */
+.input-methods-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  background-color: white; /* Changed from #f9f9f9 to white to match .upload-section */
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  border: 1px solid #e0e0e0; /* Added a light border */
 }
 
-.upload-section h3, .results-section h4 {
+/* Original .upload-section is now part of .input-methods-section,
+   so we can remove specific background/padding if it's redundant,
+   or keep it if .upload-section is still a distinct visual block inside.
+   For now, assuming dropzone is directly in input-methods-section or styled independently.
+*/
+.upload-section h3 { /* This might be less relevant if h3 is removed from JS for this section */
   color: #AB47BC; /* Bright Purple */
   margin-bottom: 15px;
+  text-align: center;
 }
 
 .dropzone {
   border: 2px dashed #ccc;
   border-radius: 5px;
-  padding: 30px;
+  padding: 25px; /* Adjusted padding */
   text-align: center;
   cursor: pointer;
   background-color: #F9F9F9;
-  margin-bottom: 15px;
+  margin-bottom: 10px; /* Reduced margin */
   transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
@@ -48,39 +62,205 @@
 .dropzone p {
   margin: 0;
   color: #555;
+  font-size: 0.95em; /* Slightly smaller text */
 }
 
-.file-info {
-    font-size: 0.9em;
-    color: #777;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.tool-button {
-  background-color: #AB47BC; /* Bright Purple */
+.browse-button {
+  align-self: center;
+  background-color: #607D8B; /* A neutral, distinct color like Slate Gray */
   color: white;
+  /* Inherits .tool-button base styles if applied globally, otherwise add: */
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
   font-size: 1em;
-  display: block; /* Make button take full width or center it */
-  margin: 0 auto; /* Center button */
   transition: background-color 0.3s ease;
 }
-
-.tool-button:hover:not(:disabled) {
-  background-color: #8E24AA; /* Darker Purple */
+.browse-button:hover:not(:disabled) {
+  background-color: #455A64; /* Darker Slate Gray */
 }
-
-.tool-button:disabled {
+.browse-button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
 }
 
-.output-box { /* Re-use styles from ScriptAssistantPage.css if globalized */
-  background-color: #F9F9F9;
+.record-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding-top: 15px;
+  margin-top: 15px; /* Add margin from dropzone/browse button */
+  border-top: 1px solid #e7e7e7; /* Separator */
+}
+
+.record-section-title {
+  font-weight: 600; /* Slightly bolder */
+  color: #444; /* Darker gray */
+  margin-bottom: 8px;
+  font-size: 1em;
+}
+
+.record-button, .stop-record-button {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center icon and text */
+  gap: 8px;
+  padding: 10px 18px;
+  min-width: 180px; /* Give buttons a decent width */
+  /* Inherits .tool-button base styles if applied globally, otherwise add: */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+}
+
+.record-button {
+  background-color: #4CAF50; /* Green for record */
+}
+.record-button:hover:not(:disabled) {
+  background-color: #388E3C; /* Darker Green */
+}
+
+.stop-record-button {
+  background-color: #D32F2F; /* Red for stop */
+}
+.stop-record-button:hover:not(:disabled) {
+  background-color: #B71C1C; /* Darker Red */
+}
+
+.recording-status {
+  color: #D32F2F;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  font-size: 0.9em;
+}
+
+.pulsing-dot {
+  height: 10px;
+  width: 10px;
+  background-color: #D32F2F;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 8px;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(211, 47, 47, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(211, 47, 47, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(211, 47, 47, 0); }
+}
+
+.selected-audio-info {
+  margin-top: 10px; /* Reduced margin */
+  padding: 12px 15px; /* Adjusted padding */
+  background-color: #e8f5e9; /* Light green, more neutral than blue for general audio */
+  border: 1px solid #c8e6c9; /* Border for the info box */
+  border-radius: 5px;
+  text-align: center;
+  font-size: 0.9em;
+  color: #333;
+}
+.selected-audio-info strong {
+  color: #2e7d32; /* Darker green for emphasis */
+}
+.selected-audio-info audio {
+  margin-top: 10px;
+  width: 100%;
+  max-width: 350px; /* Constrain audio player width */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.file-info { /* This was from original, ensure it's still relevant or remove if selected-audio-info covers it */
+  font-size: 0.9em;
+  color: #777;
+  margin-bottom: 15px; /* Reduced margin */
+  text-align: center;
+}
+
+/* Main Transcribe Button */
+.transcribe-main-button {
+  margin-top: 20px; /* Keep some space above */
+  width: 100%;
+  max-width: 350px; /* Constrain width */
+  padding: 12px 20px;
+  font-size: 1.1em;
+  font-weight: 600;
+  background-color: #AB47BC; /* Primary action color (Bright Purple) */
+  /* Inherits .tool-button base styles if applied globally, otherwise ensure: */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  transition: background-color 0.3s ease;
+}
+.transcribe-main-button:hover:not(:disabled) {
+  background-color: #8E24AA; /* Darker Purple */
+}
+.transcribe-main-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+
+/* General .tool-button styles (if not already in App.css or global styles) */
+/* This is a fallback if .tool-button is not globally defined.
+   If it IS globally defined, these might be redundant or cause conflicts.
+   The JS component uses className="tool-button" for several buttons.
+*/
+.tool-button {
+  /* Default styles for any button with .tool-button that isn't more specific */
+  /* background-color: #AB47BC; /* Default to purple */
+  /* color: white; */
+  /* border: none; */
+  /* padding: 10px 20px; */
+  /* border-radius: 5px; */
+  /* cursor: pointer; */
+  /* font-size: 1em; */
+  /* transition: background-color 0.3s ease; */
+  /* display: block; */ /* Or inline-block depending on usage */
+  /* margin: 5px auto; */ /* Example margin */
+}
+/* .tool-button:hover:not(:disabled) {
+  background-color: #8E24AA;
+} */
+/* .tool-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+} */
+
+
+.results-section {
+  background-color: white;
+  padding: 20px; /* Reduced padding slightly */
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  margin-top: 20px; /* Ensure space from transcribe button */
+}
+
+.results-section h4 {
+  color: #AB47BC; /* Bright Purple */
+  margin-top: 0; /* Remove top margin for h4 inside results */
+  margin-bottom: 10px; /* Reduced margin */
+  font-size: 1.15em; /* Slightly larger */
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+}
+
+.output-box {
+  background-color: #fdfdfd; /* Slightly different from #F9F9F9 for distinction */
   padding: 15px;
   border-radius: 4px;
   border: 1px solid #E0E0E0;
@@ -88,18 +268,93 @@
   min-height: 80px;
 }
 .output-box.loading-box p {
-    color: #777;
-    text-align: center;
-    padding-top: 20px;
+  color: #777;
+  text-align: center;
+  padding-top: 20px;
+  font-style: italic;
 }
 
-.output-box p {
-  font-size: 1em;
+/* Styling for <pre> tags within output boxes for better readability */
+.output-box pre {
+  white-space: pre-wrap;       /* Preserves whitespace and line breaks */
+  word-wrap: break-word;       /* Wraps long lines */
+  background-color: #f4f6f8;   /* Light background for the pre block */
+  padding: 10px 15px;          /* Padding inside the pre block */
+  border-radius: 4px;
+  border: 1px solid #dde1e6;   /* Subtle border for the pre block */
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; /* Monospaced font */
+  font-size: 0.9em;            /* Adjust font size as needed */
   line-height: 1.6;
-  color: #333;
-  white-space: pre-wrap;
+  color: #333;                 /* Text color */
+  max-height: 350px;           /* Max height before scrolling */
+  overflow-y: auto;            /* Enable vertical scroll if content exceeds max-height */
 }
+
 
 .broadcast-text-box {
   border-left: 4px solid #1A237E; /* Accent for broadcast text */
+}
+.output-box.placeholder-box p { /* For the placeholder text */
+    color: #757575;
+    text-align: center;
+    padding: 20px 0;
+    font-style: italic;
+}
+
+.error-message { /* General error message styling */
+  color: #c62828; /* Darker Red for text */
+  background-color: #ffcdd2; /* Light Red background */
+  border: 1px solid #ef9a9a; /* Lighter Red border */
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-top: 15px; /* Space from elements above */
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 0.9em;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .audio-transcription-container > p {
+    font-size: 1em;
+    margin-bottom: 20px;
+  }
+  .input-methods-section,
+  .results-section,
+  .transcribe-main-button {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .transcribe-main-button {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .audio-transcription-container h2 {
+    font-size: 1.5em;
+  }
+  .audio-transcription-container > p {
+    font-size: 0.9em;
+  }
+  .dropzone {
+    padding: 20px;
+  }
+  .dropzone p {
+    font-size: 0.9em;
+  }
+  .record-button, .stop-record-button, .browse-button {
+    font-size: 0.95em;
+    padding: 8px 15px;
+    min-width: 150px;
+  }
+  .transcribe-main-button {
+    font-size: 1em;
+  }
+  .results-section h4 {
+    font-size: 1.05em;
+  }
+  .output-box pre {
+    font-size: 0.85em;
+  }
 }

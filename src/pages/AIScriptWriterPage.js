@@ -1,12 +1,16 @@
-// src/pages/AIScriptWriterPage.js
 import React, { useState } from 'react';
-import './AIScriptWriterPage.css'; // We'll create this next
+import './AIScriptWriterPage.css'; // Ensure this CSS file is created and styled
 
 const AIScriptWriterPage = () => {
   const [topic, setTopic] = useState('');
   const [generatedScript, setGeneratedScript] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
+
+  // It's best practice to store API URLs in environment variables
+  // e.g., process.env.REACT_APP_API_URL
+  // For now, using the provided URL directly.
+  const API_BASE_URL = 'https://journalaise-backend.onrender.com';
 
   const handleGenerateScript = async () => {
     if (!topic.trim()) {
@@ -15,43 +19,36 @@ const AIScriptWriterPage = () => {
     }
     setError('');
     setIsLoading(true);
-    setGeneratedScript('');
+    setGeneratedScript(''); // Clear previous script
 
-    // Simulate AI processing delay
-    setTimeout(() => {
-      const scriptContent = `
-**Scene:** News Studio / Vlogger Setup
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/generate-script`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ topic: topic.trim() }), // Send trimmed topic
+      });
 
-**Host:** Welcome back to "Insights Today"! The topic that's been buzzing all week, and the one we're diving deep into, is **${topic}**.
+      if (!response.ok) {
+        let errorMessage = `Error: ${response.status} ${response.statusText}`;
+        try {
+          const errorData = await response.json();
+          errorMessage = errorData.detail || errorData.error || errorMessage;
+        } catch (e) {
+          // Could not parse JSON, stick with status text
+        }
+        throw new Error(errorMessage);
+      }
 
-**(Intro Music Fades)**
-
-**Host:** So, what exactly is **${topic}**? At its core, it's about [AI elaborates with a brief definition and context]. Many people first encounter **${topic}** through [common example or scenario].
-
-**Expert (via video call or in studio):** Absolutely, and it's fascinating how **${topic}** has evolved. Initially, [historical point if any], but now we're seeing its impact across [mention 2-3 diverse areas]. For instance, in [Area 1], **${topic}** is enabling [specific benefit or change].
-
-**Host:** That’s a great point. We've also received questions from viewers about [common misconception or question about the topic]. What's your take on that?
-
-**Expert:** That's a common query. The reality is [clarification and nuanced explanation]. It's not as simple as [oversimplification]. We need to consider [factor A] and [factor B].
-
-**(Short graphic or B-roll footage related to the topic, if applicable)**
-
-**Host:** Looking ahead, what are the future implications or developments we can expect concerning **${topic}**?
-
-**Expert:** The trajectory is exciting. We're anticipating [future trend 1] and potentially [future trend 2]. However, it also brings challenges like [challenge A] that we need to address proactively.
-
-**Host:** Powerful insights indeed. Thank you, [Expert's Name], for shedding light on **${topic}**. And to our viewers, keep those questions coming! Join us after the break when we discuss [Next Segment Teaser].
-
-**(Outro Music Begins to Swell)**
-
-**Host:** Stay informed, stay curious.
-
-**(End Scene)
-`.trim();
-
-      setGeneratedScript(scriptContent);
+      const data = await response.json();
+      setGeneratedScript(data.script || ''); // Ensure it's a string
+    } catch (err) {
+      console.error("Failed to generate script:", err);
+      setError(err.message || 'Failed to connect to the AI service. Please try again.');
+    } finally {
       setIsLoading(false);
-    }, 2500);
+    }
   };
 
   return (
@@ -71,10 +68,11 @@ const AIScriptWriterPage = () => {
           onChange={(e) => setTopic(e.target.value)}
           placeholder="e.g., The Future of Renewable Energy, Impact of Social Media on Youth"
           className="topic-input-field"
+          disabled={isLoading}
         />
         <button
           onClick={handleGenerateScript}
-          disabled={isLoading}
+          disabled={isLoading || !topic.trim()}
           className="generate-button tool-button"
         >
           {isLoading ? 'Generating Script...' : 'Generate Script'}
@@ -85,18 +83,36 @@ const AIScriptWriterPage = () => {
       {isLoading && (
         <div className="loading-indicator">
           <p>JournalAIse is thinking... Please wait.</p>
-          {/* Optional: Add a spinner here */}
+          {/* Optional: Add a spinner visual element here */}
         </div>
       )}
 
-      {generatedScript && !isLoading && (
+      {!isLoading && !error && generatedScript && (
         <div className="generated-script-output">
           <h3>Generated Script for: "{topic}"</h3>
-          <pre className="script-content" key={topic}>
+          {/* Using a key on <pre> can help React re-render it if topic changes,
+              though it might not be strictly necessary if generatedScript always updates.
+              It's more impactful if the content of the pre itself was editable or had internal state.
+          */}
+          <pre className="script-content" key={topic + generatedScript}>
             {generatedScript}
           </pre>
           <button
-            onClick={() => navigator.clipboard.writeText(generatedScript)}
+            onClick={() => {
+              // Using document.execCommand for broader compatibility in iframes
+              const textarea = document.createElement('textarea');
+              textarea.value = generatedScript;
+              document.body.appendChild(textarea);
+              textarea.select();
+              try {
+                document.execCommand('copy');
+                alert('Script copied to clipboard!'); // Replace with a custom notification if possible
+              } catch (err) {
+                console.error('Failed to copy script: ', err);
+                alert('Failed to copy script. Please try manually.'); // Replace with custom notification
+              }
+              document.body.removeChild(textarea);
+            }}
             className="tool-button secondary copy-button"
             title="Copy script to clipboard"
           >
@@ -104,6 +120,13 @@ const AIScriptWriterPage = () => {
           </button>
         </div>
       )}
+      
+      {!isLoading && !error && !generatedScript && (
+         <div className="output-box placeholder-box" style={{textAlign: 'center', marginTop: '20px'}}>
+            <p>Your AI-generated script will appear here.</p>
+         </div>
+      )}
+
     </div>
   );
 };
