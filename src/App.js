@@ -20,7 +20,6 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/script-assistant" element={<ScriptAssistantPage />} />
             <Route path="/audio-transcription" element={<AudioTranscriptionPage />} />
-            {/* New Route Added Below */}
             <Route path="/ai-script-writer" element={<AIScriptWriterPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
