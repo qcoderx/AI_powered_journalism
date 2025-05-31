@@ -6,7 +6,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #F0F2F5; /* Light Gray background for the entire app */
+  background-color: #F0F2F5; 
   color: #333333;
 }
 
@@ -17,19 +17,17 @@ body {
 }
 
 .app-main-content {
-  flex: 1; /* Allows the main content to grow and push footer down */
+  flex: 1; 
 }
 
-/* General page container utility - can be less specific than individual page containers if desired */
 .page-container {
   padding: 20px 40px;
-  max-width: 1600px; /* Max width for content for better readability */
-  margin: 0 auto; /* Center content */
+  max-width: 1600px; 
+  margin: 0 auto;
 }
 
-/* Styling for tool buttons if you want them consistent across pages */
 .tool-button {
-  background-color: #AB47BC; /* Bright Purple as a default */
+  background-color: #AB47BC; 
   color: white;
   border: none;
   padding: 10px 20px;
@@ -61,7 +59,6 @@ body {
   box-shadow: none;
 }
 
-/* Common styles for output boxes for AI feedback */
 .output-box {
   background-color: #F9FAFB;
   padding: 15px 20px;
@@ -81,12 +78,12 @@ body {
 .output-box p {
   font-size: 1em;
   line-height: 1.6;
-  color: #374151; /* Slightly softer black */
+  color: #374151; 
   white-space: pre-wrap; /* Preserve formatting from AI */
 }
 
 .output-box.loading-box p, .output-box.placeholder-box p {
-    color: #6B7280; /* Muted text for placeholders */
+    color: #6B7280; 
     text-align: center;
     padding: 20px 0;
     font-style: italic;
